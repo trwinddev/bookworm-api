@@ -31,10 +31,10 @@ export const books = async (req, res) => {
 };
 
 export const createBook = async (req, res) => {
-  const { title, caption, image, rating } = req.body;
+  const { title, caption, image, ratings } = req.body;
 
   try {
-    if (!title || !caption || !image || !rating) {
+    if (!title || !caption || !image || !ratings) {
       return res.status(400).json({ message: "Please fill all the fields" });
     }
 
@@ -50,7 +50,7 @@ export const createBook = async (req, res) => {
       title,
       caption,
       image: imageUrl,
-      rating,
+      ratings,
       user: req.user._id,
     });
 
